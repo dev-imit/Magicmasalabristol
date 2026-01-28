@@ -192,13 +192,33 @@
     padding: 120px 20px 80px;
   }
 
+  .hero-content {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
   .hero-content h1 {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .hero-logo img {
+    width: 120px;
   }
 
   .offer-text, .offer-percent {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .hero-offer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-btn {
+    left: auto;
+    bottom: auto;
+    position: relative;
   }
 
   .hero-navigation {

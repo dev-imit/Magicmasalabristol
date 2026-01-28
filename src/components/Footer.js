@@ -47,6 +47,12 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-divider"></div>
         <p>© 2026 <span>MagicMasala</span> . All Rights Reserved</p>
+        <div className="developed-by">
+          <span>Developed by</span>
+          <a href="https://imitpark.com" target="_blank" rel="noopener noreferrer">
+            <img src="/masalamagic/imit-logo.webp" alt="IMIT" />
+          </a>
+        </div>
       </div>
     </footer>
   );

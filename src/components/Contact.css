@@ -208,3 +208,64 @@
     font-size: 40px;
   }
 }
+
+@media (max-width: 768px) {
+  .contact {
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .contact h2 {
+    font-size: 32px;
+    line-height: 50px;
+    margin-bottom: 30px;
+  }
+
+  .contact-container {
+    padding: 0 15px;
+  }
+
+  .contact-map {
+    height: 280px;
+  }
+
+  .contact-form-wrapper {
+    width: 100%;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    padding: 16px 15px;
+    font-size: 16px;
+  }
+
+  .submit-btn {
+    padding: 16px;
+    font-size: 18px;
+  }
+
+  .info-item {
+    flex-direction: row;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .info-icon {
+    font-size: 28px;
+  }
+
+  .info-content {
+    text-align: left;
+  }
+
+  .info-content h4 {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .info-content p {
+    font-size: 14px;
+    word-break: break-word;
+    text-align: left;
+  }
+}
