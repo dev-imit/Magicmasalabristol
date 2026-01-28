@@ -38,15 +38,15 @@
 }
 
 .footer-brand {
-  max-width: 400px;
+  max-width: 0px;
 }
 
 .brand-container {
   background: #F3274C;
   border-radius: 20px;
-  padding: 20px;
+  padding: 10px;
   height: 350px;
-  width: 400px;
+  width: 380px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,6 +104,13 @@
   margin-top: auto;
 }
 
+.footer-links {
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  left: 150px;
+}
+
 .footer-links h4,
 .footer-newsletter h4 {
   font-family: 'Fredoka One', cursive;
@@ -131,10 +138,12 @@
   list-style: none;
   padding: 0;
   margin-top: 20px;
+  text-align: left;
 }
 
 .footer-links ul li {
   margin-bottom: 8px;
+  text-align: left;
 }
 
 .footer-links ul li a {
@@ -149,6 +158,11 @@
 
 .footer-links ul li a:hover {
   color: #F3274C;
+}
+
+.footer-newsletter {
+  position: relative;
+  left: 180px;
 }
 
 .footer-newsletter p {
