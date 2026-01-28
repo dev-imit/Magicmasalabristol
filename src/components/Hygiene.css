@@ -1,0 +1,85 @@
+.hygiene {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  background: #FFFFFF;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.hygiene-container {
+  max-width: 1030px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 61px;
+  padding: 0 20px;
+}
+
+.hygiene h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 59px;
+  text-transform: uppercase;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.hygiene-certificates {
+  display: flex;
+  gap: 32px;
+}
+
+.certificate {
+  width: 335px;
+  height: 230px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.certificate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hygiene-shape {
+  position: absolute;
+  pointer-events: none;
+}
+
+.shape-pumpkin {
+  width: 165px;
+  height: 238px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.shape-carrot {
+  width: 163px;
+  height: 285px;
+  right: 0;
+  top: 33px;
+}
+
+@media (max-width: 768px) {
+  .hygiene-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hygiene h2 {
+    font-size: 28px;
+  }
+
+  .hygiene-certificates {
+    flex-direction: column;
+  }
+
+  .certificate {
+    width: 100%;
+    max-width: 335px;
+  }
+}

@@ -1,0 +1,174 @@
+.about {
+  position: relative;
+  width: 100%;
+  min-height: 613px;
+  background: #FFFFFF;
+  padding: 66px 145px;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.about-content {
+  flex: 1;
+  max-width: 685px;
+}
+
+.about-subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: #FFD43A;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.about-content h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 59px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 32px;
+}
+
+.about-description {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 32px;
+  text-transform: capitalize;
+  color: #000000;
+  margin-bottom: 24px;
+}
+
+.chef-name {
+  color: #F3274C;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.about-quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 24px;
+  background: #FFF2F2;
+  border-radius: 36px;
+  max-width: 696px;
+}
+
+.quote-icon {
+  font-size: 48px;
+  color: #F3274C;
+  line-height: 1;
+}
+
+.about-quote p {
+  font-family: 'Fira Sans', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.quote-line {
+  width: 113px;
+  height: 5px;
+  background: #F3274C;
+  border-radius: 3px;
+}
+
+.about-images {
+  position: relative;
+  width: 385px;
+  height: 482px;
+  filter: drop-shadow(0px 4px 4px rgba(243, 39, 76, 0.3));
+}
+
+.image-frame {
+  position: absolute;
+  width: 348px;
+  height: 458px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.frame-back {
+  left: 0;
+  top: 0;
+}
+
+.frame-front {
+  left: 37px;
+  top: 24px;
+  border: 3px solid #F3274C;
+}
+
+.floating-shape {
+  position: absolute;
+  pointer-events: none;
+}
+
+.shape-burger {
+  width: 88px;
+  height: 87px;
+  left: -17px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-35deg);
+}
+
+.shape-fry {
+  width: 87px;
+  height: 105px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 1024px) {
+  .about {
+    padding: 40px 20px;
+  }
+
+  .about-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .about-content h2 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  .about-description {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .about-images {
+    width: 100%;
+    max-width: 350px;
+    height: 400px;
+    margin-bottom: 40px;
+  }
+}

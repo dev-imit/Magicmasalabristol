@@ -1,12 +1,24 @@
 import './App.css';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Gallery from './components/Gallery';
+import Testimonials from './components/Testimonials';
+import Hygiene from './components/Hygiene';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="/menu.jpeg" className="App-logo" alt="menu" />
-        <h1>Website Under Development</h1>
-      </header>
+      <Navbar />
+      <Hero />
+      <About />
+      <Gallery />
+      <Testimonials />
+      <Hygiene />
+      <Contact />
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,215 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 728px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 80px;
+  overflow: hidden;
+}
+
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 525px;
+  margin-top: 60px;
+}
+
+.hero-logo {
+  margin-bottom: 24px;
+}
+
+.hero-logo img {
+  width: 220px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.hero-content h1 {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 73px;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.hero-offer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.offer-text {
+  font-family: 'Oregano', cursive;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 26px;
+  color: #FFFFFF;
+}
+
+.offer-percent {
+  font-family: 'Oregano', cursive;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 26px;
+  color: #FFD43A;
+}
+
+.hero-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  background: #F3274C;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.3s;
+  left: 300px;
+  bottom: 150px;
+}
+
+.hero-btn::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 8%;
+  right: -4%;
+  bottom: -8px;
+  border: 3px solid #F3274C;
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+.hero-btn span {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #FFFFFF;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+}
+
+.hero-navigation {
+  position: absolute;
+  bottom: 60px;
+  left: 115px;
+  right: 115px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.nav-arrow {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 34px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-arrow:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.nav-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot.active {
+  background: transparent;
+  border: 5px solid #F3274C;
+}
+
+.dot:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 120px 20px 80px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .offer-text, .offer-percent {
+    font-size: 20px;
+  }
+
+  .hero-navigation {
+    left: 20px;
+    right: 20px;
+    bottom: 30px;
+  }
+
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+}

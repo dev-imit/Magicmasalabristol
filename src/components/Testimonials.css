@@ -1,0 +1,126 @@
+.testimonials {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 93px 0;
+  overflow: hidden;
+}
+
+.testimonials-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.testimonials h3 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 40px;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.testimonials-subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.wave-divider {
+  font-size: 24px;
+  color: #FFD43A;
+  margin-bottom: 32px;
+}
+
+.testimonial-content {
+  margin-top: 48px;
+}
+
+.testimonial-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+  color: #FFFFFF;
+  max-width: 870px;
+  margin: 0 auto 48px;
+}
+
+.testimonial-author {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.author-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.author-location {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.testimonial-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: #FFFFFF;
+  border: 1px solid #ECECEC;
+  box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.testimonial-arrow.prev {
+  right: 1050px;
+}
+
+.testimonial-arrow.next {
+  left: 1050px;
+}
+
+.testimonial-arrow:hover {
+  background: #e9e7e7;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    min-height: 400px;
+  }
+
+  .testimonials h3 {
+    font-size: 28px;
+  }
+
+  .testimonial-text {
+    font-size: 16px;
+  }
+
+  .testimonial-arrow {
+    display: none;
+  }
+}

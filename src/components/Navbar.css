@@ -1,0 +1,153 @@
+.navbar {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 16px 80px;
+}
+
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 91px;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-logo img {
+  width: 67px;
+  height: 67px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-logo-text h1 {
+  font-family: 'Oregano', cursive;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 41px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.nav-logo-text span {
+  font-family: 'Oregano', cursive;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #FFF2F2;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-menu li a {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #FFD43A;
+}
+
+.nav-contact-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 24px;
+  background: #FFFFFF;
+  border-radius: 60px;
+  text-decoration: none;
+}
+
+.nav-contact-btn span {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #F3274C;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+@media (max-width: 968px) {
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 99px;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    padding: 2rem 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-contact-btn {
+    display: none;
+  }
+
+  .nav-logo-text h1 {
+    font-size: 24px;
+  }
+
+  .nav-logo-text span {
+    font-size: 14px;
+  }
+}

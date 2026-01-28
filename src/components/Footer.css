@@ -1,0 +1,254 @@
+.footer {
+  position: relative;
+  width: 100%;
+  min-height: 592px;
+  background: #F5F8FD;
+  padding: 60px 0 0;
+  overflow: hidden;
+}
+
+.footer-decoration {
+  position: absolute;
+  pointer-events: none;
+}
+
+.footer-decoration.left {
+  width: 290px;
+  height: 517px;
+  left: 0;
+  top: 60px;
+}
+
+.footer-decoration.right {
+  width: 274px;
+  height: 440px;
+  right: 0;
+  bottom: 75px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 0 310px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-brand {
+  max-width: 400px;
+}
+
+.brand-container {
+  background: #F3274C;
+  border-radius: 20px;
+  padding: 20px;
+  height: 350px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  left: -300px;
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.brand-header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.brand-text h3 {
+  font-family: 'Oregano', cursive;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.brand-text span {
+  font-family: 'Oregano', cursive;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #FFF2F2;
+}
+
+.brand-description {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.brand-rating {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #FFFFFF;
+  margin-top: auto;
+}
+
+.footer-links h4,
+.footer-newsletter h4 {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 43px;
+  color: #000000;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-links h4::after,
+.footer-newsletter h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  height: 5px;
+  background: #FFD40D;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 43px;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #F3274C;
+}
+
+.footer-newsletter p {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #000000;
+  margin: 20px 0;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.newsletter-form input {
+  padding: 20px 36px;
+  background: #FFFFFF;
+  border: 1px solid #DEDEDE;
+  border-radius: 10px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+}
+
+.newsletter-form input::placeholder {
+  color: #C6C6C6;
+}
+
+.newsletter-form button {
+  position: relative;
+  padding: 20px 42px;
+  background: #F3274C;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: fit-content;
+}
+
+.newsletter-form button::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 9%;
+  right: -9%;
+  bottom: -12px;
+  border: 3px solid #F3274C;
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.newsletter-form button:hover {
+  background: #d91e40;
+}
+
+.footer-bottom {
+  margin-top: 60px;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-divider {
+  width: calc(100% - 620px);
+  height: 10px;
+  background: #FFD40D;
+  margin: 0 auto 20px;
+}
+
+.footer-bottom p {
+  font-family: 'Fugaz One', cursive;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #F3274C;
+}
+
+.footer-bottom p span {
+  color: #F3274C;
+}
+
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 40px;
+  }
+
+  .footer-decoration {
+    display: none;
+  }
+
+  .footer-divider {
+    width: 80%;
+  }
+}

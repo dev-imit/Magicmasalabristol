@@ -1,0 +1,52 @@
+.menu {
+  padding: 4rem 2rem;
+  background-color: white;
+}
+
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu h2 {
+  font-size: 2.5rem;
+  color: #ff6b35;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.menu-item {
+  background: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.menu-item:hover {
+  transform: translateY(-10px);
+}
+
+.menu-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.menu-item h3 {
+  padding: 1rem;
+  color: #333;
+}
+
+.menu-item .price {
+  padding: 0 1rem 1rem;
+  color: #ff6b35;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
