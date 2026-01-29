@@ -21,10 +21,10 @@ const About = () => {
         </div>
         <div className="about-images">
           <div className="image-frame frame-back">
-            <img src="/masalamagic/chef1.jpg" alt="Chef" />
+            <img src="/masalamagic/chef1.jpeg" alt="Chef" />
           </div>
           <div className="image-frame frame-front">
-            <img src="/masalamagic/chef2.jpg" alt="Chef cooking" />
+            <img src="/masalamagic/chef.jpeg" alt="Chef cooking" />
           </div>
         </div>
       </div>

@@ -1,3 +1,7 @@
+/* Reduce opacity of the background image in frame-back */
+.about-images .frame-back img {
+  opacity: 0.4;
+}
 .about {
   position: relative;
   width: 100%;
