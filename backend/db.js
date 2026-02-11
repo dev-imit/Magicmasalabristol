@@ -67,14 +67,20 @@ db.exec(`
 `);
 
 // ── Seed default admin ─────────────────────────────────────
+// ── Seed / Sync admin from .env ────────────────────────────
 const adminEmail = process.env.ADMIN_EMAIL || 'admin@magicmasala.com';
 const adminPass = process.env.ADMIN_PASSWORD || 'Admin@123';
+const adminHash = bcrypt.hashSync(adminPass, 10);
 
-const existingAdmin = db.prepare('SELECT id FROM users WHERE email = ?').get(adminEmail);
+const existingAdmin = db.prepare('SELECT id, email FROM users WHERE role = ?').get('admin');
 if (!existingAdmin) {
-  const hash = bcrypt.hashSync(adminPass, 10);
-  db.prepare('INSERT INTO users (email, password, role) VALUES (?, ?, ?)').run(adminEmail, hash, 'admin');
-  console.log(`Default admin created: ${adminEmail}`);
+  // First run — create admin
+  db.prepare('INSERT INTO users (email, password, role) VALUES (?, ?, ?)').run(adminEmail, adminHash, 'admin');
+  console.log(`Admin created: ${adminEmail}`);
+} else {
+  // Update admin email & password from .env on every restart
+  db.prepare('UPDATE users SET email = ?, password = ? WHERE id = ?').run(adminEmail, adminHash, existingAdmin.id);
+  console.log(`Admin synced from .env: ${adminEmail}`);
 }
 
 // ── Seed default settings ──────────────────────────────────

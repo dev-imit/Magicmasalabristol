@@ -1,15 +1,15 @@
-# Magic Masala — VPS Deployment Guide
+# Magic Masala — VPS Production Deployment Guide
 
-Deploy the Magic Masala website to a VPS for **client preview** at `www.magicmasala.gitdr.com`.
+Deploy the Magic Masala website to a VPS at `www.magicmasalabristol.com`.
 
 ---
 
 ## Prerequisites
 
 - A VPS (Ubuntu 20.04+ recommended) with root/sudo access
-- Domain `magicmasala.gitdr.com` — **point DNS A records** to your VPS IP:
-  - `magicmasala.gitdr.com` → `YOUR_VPS_IP`
-  - `www.magicmasala.gitdr.com` → `YOUR_VPS_IP`
+- Domain `magicmasalabristol.com` — **point DNS A records** to your VPS IP:
+  - `magicmasalabristol.com` → `YOUR_VPS_IP`
+  - `www.magicmasalabristol.com` → `YOUR_VPS_IP`
 - SSH access to the VPS
 - GitHub repository with your code pushed
 
@@ -29,9 +29,10 @@ git init
 cat > .gitignore << 'EOF'
 node_modules/
 build/
-backend/data.db
+backend/magic_masala.db
 backend/.env
 .env
+.env.staging
 .DS_Store
 backend/uploads/gallery/*
 backend/uploads/offers/*
@@ -106,10 +107,17 @@ cd magic-masala
 
 ---
 
-## Step 4: Build the Frontend
+## Step 4: Set Environment Variable & Build Frontend
 
 ```bash
-# Install frontend dependencies and build
+cd /var/www/magic-masala
+
+# Create .env for React (used at build time)
+cat > .env << 'EOF'
+REACT_APP_API_URL=https://www.magicmasalabristol.com
+EOF
+
+# Install dependencies and build
 npm install
 npm run build
 ```
@@ -126,7 +134,7 @@ npm install
 cat > .env << 'EOF'
 PORT=3001
 JWT_SECRET=your-strong-secret-key-change-this
-ADMIN_EMAIL=admin@magicmasala.com
+ADMIN_EMAIL=admin@magicmasalabristol.com
 ADMIN_PASSWORD=YourStrongPassword123!
 EOF
 ```
@@ -168,7 +176,7 @@ Paste the following:
 ```nginx
 server {
     listen 80;
-    server_name magicmasala.gitdr.com www.magicmasala.gitdr.com;
+    server_name magicmasalabristol.com www.magicmasalabristol.com;
 
     # Serve React build
     root /var/www/magic-masala/build;
@@ -205,8 +213,8 @@ Enable the site:
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/magicmasala /etc/nginx/sites-enabled/
-sudo rm /etc/nginx/sites-enabled/default  # remove default site
-sudo nginx -t                              # test config
+sudo rm -f /etc/nginx/sites-enabled/default  # remove default site
+sudo nginx -t                                 # test config
 sudo systemctl restart nginx
 ```
 
@@ -216,10 +224,10 @@ sudo systemctl restart nginx
 
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d magicmasala.gitdr.com -d www.magicmasala.gitdr.com
+sudo certbot --nginx -d magicmasalabristol.com -d www.magicmasalabristol.com
 ```
 
-Follow the prompts. Certbot will auto-renew. Verify with:
+Follow the prompts. Certbot will auto-configure Nginx for HTTPS and auto-renew. Verify with:
 
 ```bash
 sudo certbot renew --dry-run
@@ -227,18 +235,22 @@ sudo certbot renew --dry-run
 
 ---
 
-## Step 9: Set Environment Variable for Production
+## Step 9: Reset Admin Password (if needed)
 
-Create a `.env` file in the project root for the React app (used at build time):
+If you change the password in `.env` after the database was already created:
 
 ```bash
-cd /var/www/magic-masala
-cat > .env << 'EOF'
-REACT_APP_API_URL=https://www.magicmasala.gitdr.com
-EOF
-
-# Rebuild frontend with production API URL
-npm run build
+cd /var/www/magic-masala/backend
+node -e "
+const Database = require('better-sqlite3');
+const bcrypt = require('bcrypt');
+require('dotenv').config();
+const db = new Database('magic_masala.db');
+const hash = bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10);
+db.prepare('UPDATE users SET password = ? WHERE email = ?').run(hash, process.env.ADMIN_EMAIL);
+console.log('Password updated for ' + process.env.ADMIN_EMAIL);
+"
+pm2 restart magic-masala-backend
 ```
 
 ---
@@ -277,7 +289,7 @@ cd /var/www/magic-masala && git pull origin main && npm install && npm run build
 
 ---
 
-## Firewall Setup (Optional but Recommended)
+## Firewall Setup (Recommended)
 
 ```bash
 sudo ufw allow OpenSSH
@@ -295,8 +307,10 @@ sudo ufw enable
 | API returns 404 | Verify Nginx proxy config and restart Nginx |
 | Upload fails | Check `client_max_body_size` in Nginx config |
 | White screen | Check `npm run build` completed without errors |
+| Invalid credentials | Run Step 9 to reset admin password |
 | Permission denied on uploads | `sudo chown -R www-data:www-data /var/www/magic-masala/backend/uploads` |
 | better-sqlite3 build error | `sudo apt install build-essential python3` then `npm rebuild` |
+| SSL error | `sudo certbot --nginx -d magicmasalabristol.com -d www.magicmasalabristol.com` |
 
 ---
 
@@ -304,11 +318,12 @@ sudo ufw enable
 
 ```
 /var/www/magic-masala/
+├── .env                ← REACT_APP_API_URL (build-time only)
 ├── build/              ← React production build (served by Nginx)
 ├── backend/
 │   ├── server.js       ← Express API (managed by PM2)
-│   ├── .env            ← Environment variables
-│   ├── data.db         ← SQLite database (auto-created)
+│   ├── .env            ← Backend env (PORT, JWT_SECRET, ADMIN creds)
+│   ├── magic_masala.db ← SQLite database (auto-created)
 │   └── uploads/        ← User-uploaded files
-└── .env                ← REACT_APP_API_URL (build-time)
+└── package.json
 ```
