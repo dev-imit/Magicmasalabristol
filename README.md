@@ -1,53 +1,173 @@
-# Getting Started with Create React App
+# Magic Masala Catering Service
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, full-stack web application for Magic Masala catering service with separate frontend and backend architectures.
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+```
+magic-masala/
+├── frontend/           # React frontend (current directory)
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── README.md
+├── backend/            # Express.js backend server
+│   ├── vps-backend-server.js
+│   ├── package.json
+│   ├── magic_masala.db
+│   ├── uploads/
+│   ├── .env
+│   └── README.md
+└── README.md          # This file
+```
 
-### `npm start`
+## Quick Start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. Start the Backend Server
 
-### `npm test`
+```bash
+cd backend
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The backend will run on `http://localhost:3001`
 
-### `npm run build`
+### 2. Start the Frontend (in a new terminal)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# From the root directory (magic-masala)
+npm install
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The frontend will run on `http://localhost:3000`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `npm run eject`
+### Frontend (React)
+- Modern React application with routing
+- Responsive design for mobile and desktop
+- Admin panel for content management
+- Gallery, testimonials, offers, and certificates display
+- Contact forms and service information
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend (Express.js + SQLite)
+- RESTful API with JWT authentication
+- SQLite database for data persistence
+- File upload system for images and certificates
+- User authentication and authorization
+- CORS enabled for frontend integration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Admin Access
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Default Admin Credentials:**
+- Email: `admin@masalamagic.com`
+- Password: `admin123`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Access the admin panel at: `http://localhost:3000/admin`
 
-## Learn More
+## API Endpoints
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Authentication
+- `POST /auth/login` - User login
+- `POST /auth/register` - User registration
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Content Management
+- `GET/POST/DELETE /gallery` - Gallery images
+- `GET/POST/PUT/DELETE /testimonials` - Customer testimonials
+- `GET/POST/PUT/DELETE /offers` - Promotional offers
+- `GET/POST/DELETE /certificates` - Hygiene certificates
 
-### Code Splitting
+## Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Frontend Development
+```bash
+npm start          # Start development server
+npm run build      # Build for production
+npm test          # Run tests
+```
+
+### Backend Development
+```bash
+cd backend
+npm start          # Start production server
+npm run dev        # Start with nodemon (auto-restart)
+```
+
+## Environment Configuration
+
+### Frontend (.env)
+```env
+REACT_APP_API_URL=http://localhost:3001
+```
+
+### Backend (.env)
+```env
+PORT=3001
+JWT_SECRET=your-secret-key-change-this-in-production
+```
+
+## Database
+
+The application uses SQLite database (`magic_masala.db`) which is automatically created and initialized when the backend server starts.
+
+## File Uploads
+
+Uploaded files are stored in `backend/uploads/` directory:
+- Gallery images
+- Offer images
+- Certificate files (PDFs, images)
+
+## Deployment
+
+### Backend Deployment
+1. Configure environment variables
+2. Set up process manager (PM2 recommended)
+3. Configure reverse proxy (nginx)
+4. Set up SSL certificates
+5. Ensure uploads directory has proper permissions
+
+### Frontend Deployment
+1. Build the production bundle: `npm run build`
+2. Serve static files from `build/` directory
+3. Configure web server to serve the React app
+
+## Technologies Used
+
+### Frontend
+- React 18+
+- React Router
+- CSS Modules
+- Axios for API calls
+
+### Backend
+- Node.js
+- Express.js
+- SQLite3
+- JWT for authentication
+- Multer for file uploads
+- bcrypt for password hashing
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test both frontend and backend
+5. Submit a pull request
+
+## License
+
+This project is private and proprietary to Magic Masala Catering Service.
+
+## Support
+
+For technical support or questions, please contact the development team.
 
 ### Analyzing the Bundle Size
 
