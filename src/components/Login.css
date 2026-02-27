@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oregano&display=swap');
+
+.signin {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #FFFFFF;
+}
+
+/* ── Left Panel ─────────────────────────────────────────── */
+.signin-left {
+  width: 52%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.signin-quote {
+  max-width: 579px;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #FFFFFF;
+}
+
+/* ── Right Panel ────────────────────────────────────────── */
+.signin-right {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 60px;
+}
+
+.signin-logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 40px;
+}
+
+.signin-logo-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E65100, #FF8A50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oregano', cursive;
+  font-size: 36px;
+  color: #fff;
+}
+
+.signin-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signin-brand {
+  font-family: 'Oregano', cursive;
+  font-size: 29px;
+  line-height: 38px;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.signin-tagline {
+  font-family: 'Oregano', cursive;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: capitalize;
+  color: #333333;
+}
+
+.signin-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  text-transform: capitalize;
+  color: #000000;
+  margin: 0 0 8px;
+}
+
+.signin-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: capitalize;
+  color: #64748B;
+  margin: 0 0 32px;
+}
+
+.signin-error {
+  background: #FEE2E2;
+  color: #DC2626;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 480px;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* ── Form ───────────────────────────────────────────────── */
+.signin-form {
+  width: 480px;
+  max-width: 100%;
+}
+
+.signin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.signin-field label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+.signin-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 10px;
+  gap: 10px;
+  transition: border-color 0.2s;
+}
+
+.signin-input-wrap:focus-within {
+  border-color: #E65100;
+}
+
+.signin-input-wrap input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+  background: transparent;
+}
+
+.signin-input-wrap input::placeholder {
+  color: #64748B;
+}
+
+.signin-password-wrap {
+  justify-content: space-between;
+  padding: 10px;
+  min-height: 44px;
+}
+
+.signin-eye {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Options row ────────────────────────────────────────── */
+.signin-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.signin-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.signin-remember input[type="checkbox"] {
+  display: none;
+}
+
+.signin-checkbox {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #ADADAD;
+  border-radius: 1px;
+  background: #D9D9D9;
+  display: inline-block;
+  position: relative;
+}
+
+.signin-remember input:checked + .signin-checkbox {
+  background: #E65100;
+  border-color: #E65100;
+}
+
+.signin-remember input:checked + .signin-checkbox::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  color: #fff;
+  font-size: 11px;
+}
+
+.signin-forgot {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #E65100;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+/* ── Submit ─────────────────────────────────────────────── */
+.signin-btn {
+  width: 100%;
+  height: 52px;
+  background: #E65100;
+  border: 1px solid #E65100;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #FFFFFF;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: background 0.2s;
+}
+
+.signin-btn:hover {
+  background: #D84A00;
+}
+
+.signin-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .signin { flex-direction: column; }
+  .signin-left {
+    width: 100%;
+    min-height: 300px;
+  }
+  .signin-right {
+    width: 100%;
+    padding: 40px 20px;
+  }
+  .signin-form { width: 100%; }
+  .signin-error { width: 100%; }
+}
