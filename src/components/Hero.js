@@ -46,14 +46,6 @@ const Hero = () => {
           <img src="/masalamagic/logo.png" alt="Magic Masala Logo" />
         </div>
         <h1>Delicious Catering for Every Occasion</h1>
-        <div className="hero-offer">
-          <span className="offer-text">Exclusive offer</span>
-          <span className="offer-percent">35%</span>
-          <span className="offer-text">off this week</span>
-        </div>
-        <a href="#menu" className="hero-btn">
-          <span>See Our Package</span>
-        </a>
       </div>
       <div className="hero-navigation">
         <button className="nav-arrow prev" onClick={goToPrev}>‹</button>
