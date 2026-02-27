@@ -26,8 +26,11 @@ yarn-error.log*
 
 # backend
 backend/node_modules
-backend/data.db
 backend/.env
+backend/magic_masala.db
+backend/magic_masala.db-shm
+backend/magic_masala.db-wal
+backend/data.db
 
 # uploaded files (keep directories)
 backend/uploads/gallery/*
