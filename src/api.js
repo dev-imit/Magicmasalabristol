@@ -1,4 +1,11 @@
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+// build-time environment variable. In production we want
+// to hit the same origin (Nginx proxy) so an empty string is
+// acceptable; if the variable is completely missing we
+// default to localhost for local development.
+const API_URL =
+  process.env.REACT_APP_API_URL !== undefined
+    ? process.env.REACT_APP_API_URL
+    : 'http://localhost:3001';
 
 class Api {
   constructor() {
