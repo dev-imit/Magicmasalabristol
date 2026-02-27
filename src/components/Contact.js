@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
 
 const Contact = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Message from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:magicmasalabristol@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section id="contact" className="contact">
       <h2>Contact Us</h2>
-      
+
       <div className="contact-container">
         <div className="contact-main">
           <div className="contact-map">
@@ -20,23 +31,23 @@ const Contact = () => {
               title="Magic Masala Bristol Location"
             ></iframe>
           </div>
-          
+
           <div className="contact-form-wrapper">
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-field">
-                <input type="text" placeholder="Name" />
+                <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
               </div>
               <div className="form-field">
-                <input type="email" placeholder="Email address" />
+                <input type="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
               </div>
               <div className="form-field">
-                <textarea placeholder="Message"></textarea>
+                <textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
               </div>
               <button type="submit" className="submit-btn">Send now</button>
             </form>
           </div>
         </div>
-        
+
         <div className="contact-info">
           <div className="info-item">
             <div className="info-icon">📞</div>
