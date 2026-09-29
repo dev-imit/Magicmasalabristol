@@ -5,7 +5,9 @@ const db = require('../db');
 const auth = require('../middleware/auth');
 
 const router = express.Router();
-const JWT_SECRET = process.env.JWT_SECRET || 'magic-masala-jwt-secret';
+// Reuse the single validated secret from the auth middleware. Deriving it
+// again here (with a fallback) is how the public default stayed reachable.
+const JWT_SECRET = auth.JWT_SECRET;
 
 // POST /api/auth/login
 router.post('/login', (req, res) => {

@@ -68,8 +68,17 @@ db.exec(`
 
 // ── Seed default admin ─────────────────────────────────────
 // ── Seed / Sync admin from .env ────────────────────────────
-const adminEmail = process.env.ADMIN_EMAIL || 'admin@magicmasala.com';
-const adminPass = process.env.ADMIN_PASSWORD || 'Admin@123';
+// Admin credentials come from the environment only. The old defaults
+// (the previous hardcoded pair) are public in this repo's history,
+// so falling back to them would silently recreate a known-password admin.
+const adminEmail = process.env.ADMIN_EMAIL;
+const adminPass = process.env.ADMIN_PASSWORD;
+if (!adminEmail || !adminPass) {
+  throw new Error(
+    'ADMIN_EMAIL and ADMIN_PASSWORD must be set. ' +
+    'Copy backend/.env.example to backend/.env and fill them in.'
+  );
+}
 const adminHash = bcrypt.hashSync(adminPass, 10);
 
 const existingAdmin = db.prepare('SELECT id, email FROM users WHERE role = ?').get('admin');

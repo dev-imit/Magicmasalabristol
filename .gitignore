@@ -39,3 +39,9 @@ backend/uploads/certificates/*
 !backend/uploads/gallery/.gitkeep
 !backend/uploads/offers/.gitkeep
 !backend/uploads/certificates/.gitkeep
+
+# --- migration hygiene: never track live secrets ---
+.env
+.env.*
+!.env.example
+config/google-credentials.json
